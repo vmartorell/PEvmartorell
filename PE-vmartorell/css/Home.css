@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: BluuNext-Bolditalic;
+    src: url(../Fonts/bluu-next/BluuNext-Bolditalic.otf);
+}
+@font-face {
+    font-family: BluuNext-Bold;
+    src: url(../Fonts/bluu-next/BluuNext-Bold.otf);
+}
+@font-face {
+    font-family: BluueNext-Titling;
+    src: url(../Fonts/bluu-next/BluuNext-Titling.otf);
+}
+body{
+    font-family: BluuNext-Bold;
+    background-image:url(../images/bodyHome.jpg); 
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.container{
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "slide slide slide"
+        "footer footer footer";
+    grid-template-columns: repeat(2, 1fr) 20% ;
+    grid-gap: 10px;
+    padding: 10px;
+}
+.header {
+    grid-area: header;
+    background-image:/*linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),*/ url(../images/vintage1.jpg);
+    height: 25vh;
+    background-size: cover;
+    background-position: center;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0; 
+    width: 100%;
+    z-index:9999;
+}
+header img.logo{
+    width: 130px;
+    height:auto ;
+    align-self: center;
+}
+.main-nav{
+    align-self: center;
+    list-style: none;
+}
+.main-nav li{
+    display: inline-block;
+}
+.main-nav li a{
+    color: brown;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    font-family: BluuNext-Bolditalic;
+    font-size: 15px;
+}
+.main-nav li.active a{
+    border: 1px solid saddlebrown;
+}
+.main-nav li a:hover{
+    border: 1px solid saddlebrown;
+}
+.container section{
+    grid-area: slide;
+    padding: 80px 10px 0 0;
+    min-height: 55vh;
+}
+.active{
+    pointer-events:none;
+}
+.slide{
+    position: relative;
+    width: 535px;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 100px;
+    z-index:2
+}
+.slide li{
+    display:  inline-block;
+    height: 300px;
+    position: relative;
+    width: 600px;
+}
+.slide ul {
+    position: absolute;
+    left: 0;
+    top: -15px; 
+    width: 9000px;
+    list-style: none;
+    margin-left: -50px;
+    transition: left .3s linear;
+    -moz-transition: left .3s linear;
+    -o-transition: left .3s linear;
+    -webkit-transition:left .3s linear; ;
+}
+.slide-container{
+    margin: 0 auto;
+    padding:0;
+    width: 600px;
+    box-shadow: 10px 10px 15px rgba(0, 0,0,50);  
+}
+.slide-container img{
+    width: 100%;
+    padding: 0 10px;
+}
+.slide ul{
+    animation: slide-animation 15s infinite;
+}
+.slide ul:hover{
+    animation-play-state:paused;
+}
+.footer{
+    grid-area: footer;
+    background-image: url(../images/vintage1.jpg);
+    height: 20vh;
+    background-size: cover;
+    background-position: center;
+    padding: 0 40px;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+    width: 100%, auto;
+}
+footer img{
+    width: 20%;    
+}
+footer a{
+    width: 20%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 10px;
+}
+
+@keyframes slide-animation{
+    20%{left: 0}
+    25%{left: -600px}
+    45%{left: -600px}
+    50%{left: -1200px}
+    70%{left: -1200px}
+    75%{left: -1800px}
+    98%{left: -1800px}
+    100%{left: 0}
+}
+@media (max-width: 950px){
+    header img.logo{
+        width: 20%;
+    }
+    .main-nav li{
+    display: block;
+    margin: 5px
+    }
+    .main-nav li a{
+    color: brown;
+    padding: 0 20px 0 0;
+    border: 1px solid transparent;
+    font-family: BluuNext-Bolditalic;
+    font-size: 15px;
+    }
+    .container{
+    grid-template-areas:
+            "header header"
+            "slide slide"
+            "footer footer";
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0;
+    }
+    footer img{ 
+        width: 60px;
+   }
+}
+@media (max-width:560px){
+    header img.logo{
+        width: 25%;
+    }
+    .main-nav li{
+    display: block;
+    margin: 5px
+    }
+    .main-nav li a{
+    color: brown;
+    padding: 0 20px 0 0;
+    border: 1px solid transparent;
+    font-family: BluuNext-Bolditalic;
+    font-size: 15px;
+    }
+   .container{
+    grid-template-areas:
+        "header header"
+        "slide slide"
+        "footer footer";
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+    padding: 0;
+    min-height: 100vh
+    }
+    .container section {
+        padding: 0;
+        grid-area: auto;
+    }
+    .slide-container{
+        width: 560px;
+        margin: 0;
+        box-shadow: none;
+    }
+    .slide ul{
+        margin-left: 0;
+
+    }
+        footer img{ 
+        width: 100%;
+   }
+}
